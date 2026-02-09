@@ -22,3 +22,28 @@ table {
 .nav-links a {
     margin-right: 10px;
 }
+
+@media (max-width: 768px) {
+
+    h1, h2 {
+        font-size: 1.4rem;      
+        margin-bottom: 15px;
+    }
+
+    .container-box {
+        padding: 20px;         
+        margin-top: 15px;
+    }
+
+    table {
+        font-size: 0.9rem;     
+    }
+
+    .nav-links a {
+        display: block;        
+        margin: 8px 0;
+        width: 100%;
+        text-align: center;
+    }
+}
+
