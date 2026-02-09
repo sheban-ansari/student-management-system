@@ -3,7 +3,6 @@ from pymongo import MongoClient
 
 app = Flask(__name__)
 
-# MongoDB Connection
 client = MongoClient("mongodb://localhost:27017/")
 db = client["student_db"]
 students = db["students"]
@@ -15,7 +14,6 @@ def index():
     return render_template("index.html", students=all_students)
 
 
-# Add Student
 @app.route("/add", methods=["GET", "POST"])
 def add_student():
     if request.method == "POST":
@@ -34,7 +32,6 @@ def add_student():
     return render_template("add_student.html")
 
 
-# Update Student
 @app.route("/update", methods=["GET", "POST"])
 def update_student():
     if request.method == "POST":
@@ -51,14 +48,12 @@ def update_student():
     return render_template("update_student.html")
 
 
-# Delete Student
 @app.route("/delete/<roll>")
 def delete_student(roll):
     students.delete_one({"roll": roll})
     return redirect("/")
 
 
-# Search Student
 @app.route("/search", methods=["GET", "POST"])
 def search_student():
     student = None
@@ -78,3 +73,4 @@ def show_students():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
